@@ -34,10 +34,10 @@ for folder in "${folders[@]}"; do
   # Check if the folder exists in ~/.config
   if [ -d "$HOME/.config/$folder" ]; then
     # Copy the folder from ~/.config to ~/dotfiles/Hyprland-Dots/.config
-    cp -r "$HOME/.config/$folder" "$base_dir/"
-    cp -r "$HOME/.config/$folder" "$bkp_dir/"
+    # cp -r "$HOME/.config/$folder" "$base_dir/"
+    # cp -r "$HOME/.config/$folder" "$bkp_dir/"
 
-    # echo "Removing $folder from ~/.config..."
+    echo "Removing $folder from ~/.config..."
     rm -rf "$HOME/.config/$folder"
   else
     echo "Warning: ~/.config/$folder does not exist, skipping..."
