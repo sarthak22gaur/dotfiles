@@ -4,4 +4,4 @@
 [includeIf "gitdir:~/personal/"]
 	path = ~/personal/.gitconfig-personal
 [includeIf "gitdir:~/work/"]
-	path = ~/personal/.gitconfig-work
+	path = ~/work/.gitconfig-work
