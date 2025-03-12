@@ -1,0 +1,7 @@
+# ~/.gitconfig
+[core]
+	excludefile = ~/.gitignore
+[includeIf "gitdir:~/personal/"]
+	path = ~/personal/.gitconfig-personal
+[includeIf "gitdir:~/work/"]
+	path = ~/personal/.gitconfig-work

@@ -1,0 +1,11 @@
+# ~/personal/.gitconfig-work
+
+[user]
+email = "sarthak.gaur@tagntrac.com"
+name = "Sarthak Gaur"
+
+[github]
+user = "sg-tnt"
+
+[core]
+sshCommand = "ssh -i ~/.ssh/tnt"

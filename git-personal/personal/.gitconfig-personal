@@ -1,0 +1,8 @@
+# ~/personal/.gitconfig-personal
+[core]
+	sshCommand = "ssh -i ~/.ssh/personal"
+[user]
+	email = "sarthak22gaur@gmail.com"
+	name = "Sarthak Gaur"
+[github]
+	user = "sarthak22gaur"
