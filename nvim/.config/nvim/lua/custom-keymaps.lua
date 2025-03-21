@@ -11,8 +11,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
 -- keep cursor centered when searching
-vim.keymap.set("n", "n", "nzzv", { noremap = true, silent = true })
-vim.keymap.set("n", "N", "Nzzv", { noremap = true, silent = true })
+vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true })
+vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
 -- move selected line or block in visual mode
 vim.keymap.set("v", "J", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
