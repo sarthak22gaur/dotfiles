@@ -5,3 +5,60 @@
 	path = ~/personal/.gitconfig-personal
 [includeIf "gitdir:~/work/"]
 	path = ~/work/.gitconfig-work
+[alias]
+    # Commit aliases
+    ca = commit --amend --no-edit
+    cm = commit -m
+    cam = commit -am
+    amend = commit --amend
+    
+    # Checkout aliases
+    co = checkout
+    cob = checkout -b
+    
+    # Branch management
+    br = branch
+    brd = branch -d
+    brD = branch -D
+    
+    # Status, add and general workflow
+    st = status -sb
+    aa = add --all
+    unstage = reset HEAD --
+    
+    # Log viewing
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    
+    # Reset
+    r = reset
+    rh = reset --hard
+    
+    # Stash operations
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+    sp = stash pop
+    
+    # Diff and show
+    df = diff
+    dc = diff --cached
+    
+    # Remote operations
+    rv = remote -v
+    
+    # Help finding aliases
+    aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+    
+    # Useful shortcuts
+    last = log -1 HEAD
+    undo = reset --soft HEAD^
+    discard = checkout --
+    pushf = push --force-with-lease
+    
+    # See what you're about to push
+    pushl = !git log --pretty=oneline --abbrev-commit --graph @{u}..
+    
+    # Find content in tracked files
+    find = !git ls-files | xargs grep -i
