@@ -1,4 +1,6 @@
 # ~/.gitconfig
+[init]
+    defaultBranch = main
 [core]
 	excludefile = ~/.gitignore
 [includeIf "gitdir:~/personal/"]
