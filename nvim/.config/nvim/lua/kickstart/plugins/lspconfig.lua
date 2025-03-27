@@ -232,6 +232,7 @@ return {
 				-- gopls = {},
 				-- pyright = {},
 				basedpyright = {},
+				-- ruff = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
@@ -239,7 +240,7 @@ return {
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
+				ts_ls = {},
 				--
 
 				lua_ls = {
@@ -255,6 +256,17 @@ return {
 							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
+				},
+
+				-- Manual Ruby LSP configuration to handle different Ruby versions
+				ruby_lsp = {
+					cmd = { "bundle", "exec", "ruby-lsp" },
+					on_attach = function(client, bufnr)
+						-- Optional: Add any specific Ruby LSP configurations here
+					end,
+					root_dir = function(fname)
+						return require("lspconfig.util").root_pattern("Gemfile", ".git")(fname)
+					end,
 				},
 			}
 
@@ -282,6 +294,11 @@ return {
 				automatic_installation = false,
 				handlers = {
 					function(server_name)
+						-- Skip Ruby LSP as we're configuring it manually
+						if server_name == "ruby_lsp" then
+							return
+						end
+
 						local server = servers[server_name] or {}
 						-- This handles overriding only values explicitly passed
 						-- by the server configuration above. Useful when disabling
@@ -291,6 +308,9 @@ return {
 					end,
 				},
 			})
+
+			-- Set up Ruby LSP manually outside of the Mason handler
+			require("lspconfig").ruby_lsp.setup(servers.ruby_lsp)
 		end,
 	},
 }
